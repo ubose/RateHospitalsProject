@@ -42,6 +42,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#Directories created on local repository
-.bin
-.obj
+# Directories created on local repository
+*.dll
+*.exe
+**/bin/*
+**/obj/*
