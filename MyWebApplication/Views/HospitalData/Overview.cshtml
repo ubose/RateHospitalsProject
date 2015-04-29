@@ -1,0 +1,65 @@
+﻿@model  MyWebApplication.Models.HospitalData
+
+@section Styles {
+    <link href="@Url.Content("~/Content/HospitalData/overview.css?id=6")" rel="stylesheet" type="text/css" />
+}
+
+@{
+    ViewBag.Title = "Overview";
+}
+
+<h2>Overview</h2>
+<div id="hospital-info" class="hospital-info">
+    <h2>@Html.Raw("Hospital Information Section")</h2>
+    @if (Model != null && Model.hospitalInfo != null)
+    {
+        <p>@Html.Raw(Model.hospitalInfo.Name)
+        @Html.Raw(Model.hospitalInfo.City + "," + Model.hospitalInfo.Country)</p>
+        <p>@Html.Raw("Rank :" + Model.hospitalInfo.Rank)</p>
+        
+    }
+    
+</div>
+
+<div class="feedback-section">
+    @if (Model != null) 
+    {  
+        Html.RenderPartial("UserFeedbackForm", Model.reviewInfo);
+    }
+</div>
+@*<div id="review-submit" class="review-submit">
+    @Html.Raw("Feedback submit section")
+    @if (Model != null && Model.reviewInfo != null && Model.hospitalInfo != null)
+    {
+        using (Html.BeginForm("Overview", "HospitalData", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "user-feedback-form" }))
+        {
+            @Html.HiddenFor(x => x.reviewInfo.hospitalId, new { @Value = Model.hospitalInfo.id})
+            <p>
+                Your name: @Html.TextBoxFor(x => x.reviewInfo.userName)
+            </p>
+            <p>
+                Your Experience: @Html.TextBoxFor(x => x.reviewInfo.userFeedback)
+            </p>
+            <p>
+                Rating: @Html.TextBoxFor(x => x.reviewInfo.Rating)
+            </p>
+            <input type="submit" value="Register Me" />
+        }
+    }    
+</div>*@
+
+<div id="review-list" class="review-list">
+    <h2>@Html.Raw("List of user reviews section")</h2>
+    @if (Model != null && Model.reviewEntryList != null)
+    {
+        foreach (var reviewItem in Model.reviewEntryList)
+        {
+            <div class="review-item">
+                <p>@Html.Raw("User : " + reviewItem.userName)</p>
+                <p>@Html.Raw("Feedback : " + reviewItem.userFeedback)</p>
+                <p>@Html.Raw("Rating : " + reviewItem.userRating)</p>
+            </div>
+        }
+    }
+</div>
+

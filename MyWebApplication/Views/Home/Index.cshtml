@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/Home/index.css")" rel="stylesheet" type="text/css" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+<div class="jumbotron">
+    <pre>
+    <div class="search-bar">
+        @using (Html.BeginForm("Results", "Search", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "searchbox" }))
+        {
+            @Html.TextBox("SearchText", null, new { @placeHolder = "Search Hospitals by Name, City or State...", @onfocus="hideIcon(this);", @onblur="restoreIcon(this);" })
+            <input id="submit" type="submit" value="Search" />                
+        }
+    </div>
+    </pre>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Top Rated Hospitals</h2>
+        <p>
+            This place shows the top rated Hospitals in India. The rating is purely based on user ratings 
+        </p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h2>Latest Reviews</h2>
+        <p>Shows the last review and experience that has been shared</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+    </div>
+    <div class="col-md-4">
+        <h2>Most Rated Hospital</h2>
+        <p>This section shows the Hospital that has been rated the most</p>
+        @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+    </div>
+</div>

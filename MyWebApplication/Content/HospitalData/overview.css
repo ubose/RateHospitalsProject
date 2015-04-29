@@ -1,0 +1,24 @@
+﻿body {
+}
+
+.hospital-info {
+    padding : 2rem;
+    border : 1px solid black;
+}
+
+.feedback-section {
+    padding : 2rem;
+    margin-top : 2rem;
+    border : 1px solid black;
+}
+
+.review-list {
+    padding : 2rem;
+    margin-top : 2rem;
+    border : 1px solid black;
+}
+
+.review-item {
+    border-bottom: 1px solid black;
+    padding-top: 1rem;
+}

@@ -1,0 +1,41 @@
+﻿@model List<MyWebApplication.Models.DbModels.HospitalDetails>
+
+@{
+    ViewBag.Title = "Results";
+}
+
+<h2>Results</h2>
+@section Styles {
+    <link href="@Url.Content("~/Content/Search/results.css?id=0")" rel="stylesheet" type="text/css" />
+}
+
+<table class="table">
+    
+@if (Model != null && Model.Count() > 0) 
+{ 
+        foreach (var item in Model)
+        {
+            <div class="entry-display-style">
+                    @Html.Raw(item.Name)
+                    <p>@Html.Raw(item.Description)</p>
+                    @Html.Raw(item.City + "," + item.Country)
+                    @Html.Raw(item.ContactInfo)
+                    @Html.ActionLink("SeeDetails ...", "Overview", "HospitalData", new { id = item.id, @float = "right" }, null)
+            </div>
+        @*<tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>*@
+        }
+}
+else
+{
+    <div class="entry-display-style">
+        @Html.Raw("No Results Found")
+    </div>
+}
+
+</table>

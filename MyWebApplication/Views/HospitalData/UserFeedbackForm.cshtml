@@ -1,0 +1,23 @@
+﻿@model MyWebApplication.Models.ReviewInformation
+
+@section Styles {
+    <link href="@Url.Content("~/Content/HospitalData/feedbackform.css?id=0")" rel="stylesheet" type="text/css" />
+}
+
+<div id="review-submit" class="review-submit">
+    <h2>@Html.Raw("Submit Review Section")</h2>
+        @using (Html.BeginForm("Overview", "HospitalData", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "user-feedback-form" }))
+        {
+            @Html.HiddenFor(x => x.hospitalId, new { @Value = Model.hospitalId })
+            <p>
+                Your name: @Html.TextBoxFor(x => x.userName)
+            </p>
+            <p>
+                Your Experience: @Html.TextBoxFor(x => x.userFeedback)
+            </p>
+            <p>
+                Rating: @Html.TextBoxFor(x => x.Rating)
+            </p>
+            <input type="submit" onclick="clearFeedbackForm()" onkeypress="clearFeedbackForm()" value="Submit Review" />
+        }
+</div>
