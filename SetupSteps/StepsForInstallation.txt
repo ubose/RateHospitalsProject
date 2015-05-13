@@ -1,0 +1,15 @@
+1.Install visual studio 2013 for web
+
+link- https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+
+2. Install azure Sdk.
+	manually : https://www.microsoft.com/en-in/download/details.aspx?id=43709
+	or install from visual studio, goto tools --> extension and updates-->search for "azure sdk" and install the update
+
+3.Create an account in GITHUb
+
+link :- https://github.com
+
+4. Clone the project RateHospitalsProject in local machine
+5. Open Visual studio, open the RateHospitalsProject/RateHospitals.sln
+6. Run the sln
